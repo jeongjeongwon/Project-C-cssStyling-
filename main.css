@@ -1,0 +1,96 @@
+body{
+  width: 100vw;
+  height: 100vh;
+}
+
+#root{
+  display: grid;
+}
+
+#header{
+  background-color: gray;
+  width: 100vw;
+  height: 10vh;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#logo{
+  width: 7%;
+  height: 100%;
+}
+
+#title{
+  width: 80%;
+  height: 100%;
+  font-size: 30px;
+  text-align: center;
+  margin-top: 50px;
+  box-sizing: border-box;
+}
+
+#login{
+  width: 5%;
+  height: 50%;
+  border-radius: 30px;
+}
+
+#sidebar{
+  background-color: dimgray;
+  width: 10vw;
+  height: 90vh;
+}
+
+#animalbutton{
+  width: 60%;
+  height: 10%;
+  margin: 30px;
+  border-radius: 50px;
+}
+
+#main{
+  background-color: silver;
+  width: 90vw;
+  height: 90vh;
+}
+
+#searchspace{
+  width: 100%;
+  height: 10%;
+  background-color: azure;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: sticky;
+  top: 10px;
+}
+
+#searchbar{
+  width: 70%;
+  height: 50%;
+  border-radius: 20px;
+  margin-right: 20px;
+}
+
+#searchbutton{
+  width: 10%;
+  height: 50%;
+  border-radius: 20px;
+}
+
+#postlist{
+  display: grid;
+  grid: '. . .';
+  gap: 16px;
+}
+
+#list{
+  width: 20vw;
+  height: 50vh;
+  background-color: skyblue;
+  margin-left: 20%;
+  margin-top: 3%;
+}
