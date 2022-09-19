@@ -1,0 +1,24 @@
+{
+  "name": "project-c-cssstyling-",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jeongjeongwon/Project-C-cssStyling-.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jeongjeongwon/Project-C-cssStyling-/issues"
+  },
+  "homepage": "https://github.com/jeongjeongwon/Project-C-cssStyling-#readme",
+  "dependencies": {
+    "express": "^4.18.1",
+    "mysql": "^2.18.1",
+    "node.js": "^0.0.1-security"
+  }
+}
