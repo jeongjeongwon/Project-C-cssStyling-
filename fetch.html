@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root"></div>
+    <script>
+        const root = document.getElementById("root")
+        // 발급받은 엔코드키
+        let park
+        =`aabdjVtDyODuXtGkvJfA7GEEAE%2B7oKgHMt3Vs2z1iZZy%2Fh0S9KF7iOxPZFyyqKg28lO9bKPRcx3WzJxQtZnlXg%3D%3D`;
+        //
+        const dognum = "&numOfRows=10&pageNo=3";
+        // API를 발급받는 주소
+        const _BASIC_URL = `http://apis.data.go.kr/6300000/animalDaejeonService/animalDaejeonList`;
+        // realUrl에 API에 발급받은 엔코드키를 집어넣고 실행시킴으로서 데이터를 받음
+        const realUrl = _BASIC_URL + `?serviceKey=${park}`
+        // async&await 프라미스(promise)로 항상 발급받음
+        // 비동기방식과 콜백함수에 대해 이해해야 한다
+        // 비동기방식 : 특정코드의 연산이 끝날때까지 코드의 실행을 멈추지 않고 다음코드를 실행하는 자바스크립트의 특성
+        async function jae (){
+          //fetch : 메서드, HTTP의 요청과 응답등을 javascript에서 쉽게 조작하도록 인터페이스를 제공하며 네트워크 리소스를 비동기적으로 가져올수 있다.
+          // reponse는 응답 객체이며 직접 json의 응답본문을 받을 수는 없다
+          // await : promise를 기다리기 위해 사용?, async에서 사용가능
+            const response = await fetch(realUrl)
+            // datas라는 객체안에 response로 받아온 리소스를 텍스트로 변환하여 담는다.
+            const datas = await response.text()
+            //DOMparser는 생성자 객체? -> XML과 HTML 소스코드를 해석
+            let domparser = new DOMParser()
+            console.dir(domparser)
+            //DOMParser.parseFromString : DOMParser로 해석한 소스코드를 어떻게 읽을건지 타입을 지정하는 것, DOMParser의 메소드
+            let value = domparser.parseFromString(datas,"application/xml")
+            console.log(value)
+            // data에는 위에서 지정해준 소스코드를 담은 value에 특정요소인 items 안에 담겨있는 값을 담는다
+            const data = value.querySelectorAll("items")
+            console.log(data)
+            //innerHTML VS innerText VS textContent
+            //innerHTML : Element 속성, 해당하는 Element의 HTML,XML을 읽어 올 수 있다. 즉 내부에 있는 HTML의 전체 내용을 가져온다
+            //innerText : Element 속성, 해당하는 Element안에 사용자에게 '보여지는' 텍스트의 값을 읽어온다. div의 내용을 사람이 ctrl+C,V하는것과 비슷하다.
+            //textContent : Node 속성, <script>나 <style>테그와 상관없이 해당노드가 가지고 있는 텍스트의 값을 그대로 읽는다. ex) 연속된 공백이나 숨겨진 문자열도 전부 들고나온다
+            //innerHTML과 textContent의 차이 : 대표적 2가지는 1. textContent는 글자는 출력하고 태그는 무시하지만 innerHTML은 태그도 인식하여 사용한다. 2. 속성이
+            data.forEach((item)=>{
+                root.innerHTML += `<img style = "width: 400px; height: 400px;"src="http://www.daejeon.go.kr/${item.querySelector("filePath").textContent === null ? "" : item.querySelector("filePath").textContent}"/>`
+            })
+        }
+        jae()
+    </script>
+</body>
+</html>
