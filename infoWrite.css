@@ -1,0 +1,28 @@
+#root{
+  width: 100vw;
+  height: 100vh;
+}
+
+#title{
+  width: 90vw;
+  height: 10vh;
+  background-color: silver;
+  box-sizing: border-box;
+  margin-top: 20px;
+}
+
+#side{
+  width: 90vw;
+  height: 10vh;
+  background-color: gray;
+  box-sizing: border-box;
+  margin-top: 20px;
+}
+
+#content{
+  width: 90vw;
+  height: 70vh;
+  background-color: dimgray;
+  box-sizing: border-box;
+  margin-top: 20px;
+}
